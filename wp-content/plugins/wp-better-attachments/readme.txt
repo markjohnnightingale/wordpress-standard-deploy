@@ -3,8 +3,8 @@ Contributors: dholloran
 Donate link: http://danholloran.com/
 Tags: attachment,file,image,post,page,custom post type,crop,image editor,attachment list
 Requires at least: 3.5
-Tested up to:  4.1.1
-Stable tag: 1.3.10
+Tested up to:  4.2.2
+Stable tag: 1.3.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,7 +93,7 @@ None so far... If you have any issues please submit an [issue](https://github.co
 * Misc. style cleanup
 * Misc. cleanup
 
-= 1.3.3 =
+== 1.3.3 ==
 * Added `wpba_attachments_exist()` to check if a post has attachments.
 * Added no attachments message for attachment list.
 * Fixed wpba_get_attachments() not retrieving post thumbnail images correctly.
@@ -101,16 +101,16 @@ None so far... If you have any issues please submit an [issue](https://github.co
 * Fixed compatibility issue with Wysija Newsletter Plugin.
 * Fixed other miscellaneous issues and general clean up.
 
-= 1.3.4 =
+== 1.3.4 ==
 * Fixed activation error
 
-= 1.3.5 =
+== 1.3.5 ==
 * Added alternate styling of meta box when editor is not activated.
 * Fixed attachment list generating extra list items
 * Added class and id parameters for each HTML element in the attachment list
 
 
-= 1.3.6 =
+== 1.3.6 ==
 * Code cleanup and PHPDoc
 * Fixed metabox inputs not selectable in Firefox
 * Added granular settings
@@ -118,18 +118,24 @@ None so far... If you have any issues please submit an [issue](https://github.co
 * Added ability to edit metabox title
 * Fixed crop editor not showing correct image sizes
 
-= 1.3.7 =
+== 1.3.7 ==
 
-= 1.3.8 =
+== 1.3.8 ==
 
-= 1.3.9 =
+== 1.3.9 ==
 * Adds survey notification key
 * Adds filters for types of files
 * Removes Flexslider from compiled CSS
 * Miscellaneous tweaks
 
-= 1.3.10 =
+== 1.3.10 ==
 * Fixes an issue with notifications not able to disable on sub folder installs.
+
+== 1.3.11 ==
+* Added use_caption_for_title to build_attachment_list function/shortcode. Props Mike Warwick.
+* Added a second add attachments button to the bottom of meta box. Props Mike Warwick.
+* Fixed undefined variable PHP warning.
+* Updates the survey notification with thank you message.
 
 == Upgrade Notice ==
 
@@ -160,24 +166,27 @@ Fixed over generic selector for settings navigation
 = 1.3.2 =
 Added a new list shortcode/function, improved inline title caption editor saving, and misc. style/cleanup
 
-= 1.3.3 =
+== 1.3.3 ==
 Should resolve issues from last update and adds more settings control
 
-= 1.3.4 =
+== 1.3.4 ==
 Fixed activation error
 
-= 1.3.5 =
+== 1.3.5 ==
 Fixed attachment list generating extra list items, Added alternate styling of meta box when editor is not activated and class/id parameters for each HTML element in the attachment list function/shortcode.
 
-= 1.3.6 ==
+== 1.3.6 ===
 Added granular settings; edit modal, un-attach link and re-attach link to Uploaded To column, miscellaneous bug fixes
 
-= 1.3.7 ==
+== 1.3.7 ===
 
-= 1.3.8 =
+== 1.3.8 ==
 
-= 1.3.9 =
+== 1.3.9 ==
 Adds filters for adding file types, removes Flexslider from CSS and miscellaneous tweaks.
 
-= 1.3.10 =
+== 1.3.10 ==
 Fixes an issue with notifications not able to disable on sub folder installs.
+
+== 1.3.11 ==
+Adds use_caption_for_title option to build_attachment_list, adds "Add Attachments" button to bottom of meta box, and misc. fixes/updates.

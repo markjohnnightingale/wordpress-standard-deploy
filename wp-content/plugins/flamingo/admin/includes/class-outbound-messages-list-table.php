@@ -5,12 +5,17 @@ if ( ! class_exists( 'WP_List_Table' ) )
 
 class Flamingo_Outbound_Messages_List_Table extends WP_List_Table {
 
+	private $is_trash = false;
+
 	public static function define_columns() {
 		$columns = array(
 			'cb' => '<input type="checkbox" />',
 			'subject' => __( 'Subject', 'flamingo' ),
 			'from' => __( 'From', 'flamingo' ),
 			'date' => __( 'Date', 'flamingo' ) );
+
+		$columns = apply_filters(
+			'manage_flamingo_outbound_posts_columns', $columns );
 
 		return $columns;
 	}
@@ -34,8 +39,9 @@ class Flamingo_Outbound_Messages_List_Table extends WP_List_Table {
 			'orderby' => 'date',
 			'order' => 'DESC' );
 
-		if ( ! empty( $_REQUEST['s'] ) )
+		if ( ! empty( $_REQUEST['s'] ) ) {
 			$args['s'] = $_REQUEST['s'];
+		}
 
 		if ( ! empty( $_REQUEST['orderby'] ) ) {
 			if ( 'subject' == $_REQUEST['orderby'] ) {
@@ -47,13 +53,13 @@ class Flamingo_Outbound_Messages_List_Table extends WP_List_Table {
 			}
 		}
 
-		if ( ! empty( $_REQUEST['order'] ) && 'asc' == strtolower( $_REQUEST['order'] ) )
+		if ( ! empty( $_REQUEST['order'] ) && 'asc' == strtolower( $_REQUEST['order'] ) ) {
 			$args['order'] = 'ASC';
+		}
 
-		if ( ! empty( $_REQUEST['m'] ) )
+		if ( ! empty( $_REQUEST['m'] ) ) {
 			$args['m'] = $_REQUEST['m'];
-
-		$this->is_trash = false;
+		}
 
 		if ( ! empty( $_REQUEST['post_status'] ) ) {
 			if ( 'trash' == $_REQUEST['post_status'] ) {
@@ -164,8 +170,9 @@ class Flamingo_Outbound_Messages_List_Table extends WP_List_Table {
 	}
 
 	function column_default( $item, $column_name ) {
-		return '';
-    }
+		do_action( 'manage_flamingo_outbound_posts_custom_column',
+			$column_name, $item->id );
+	}
 
 	function column_cb( $item ) {
 		return sprintf(
@@ -218,5 +225,3 @@ class Flamingo_Outbound_Messages_List_Table extends WP_List_Table {
 		return '<abbr title="' . $t_time . '">' . $h_time . '</abbr>';
 	}
 }
-
-?>

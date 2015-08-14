@@ -1,6 +1,7 @@
-// @codekit-prepend wpba-attachment.js
-// @codekit-prepend vendor/jquery.imgareaselect.pack.js
-// @codekit-prepend wpba-crop-3.5.js
+// @codekit-prepend "wpba-functions"
+// @codekit-prepend "wpba-attachment"
+// @codekit-prepend "vendor/jquery.imgareaselect.pack"
+// @codekit-prepend "wpba-crop-3.5"
 jQuery(function($){
 	$(window).load(function(){
 		var file_frame,
@@ -10,7 +11,7 @@ jQuery(function($){
 		* Attach Image
 		*/
 		// Uploading files
-		$('#wpba_attachments_button, #wpba_form_attachments_button').on('click', function( event ){
+		$('#wpba_attachments_button, #wpba_attachments_button2, #wpba_form_attachments_button').on('click', function( event ){
 			event.preventDefault();
 			var that = $(this);
 			// If the media frame already exists, reopen it.
@@ -43,6 +44,7 @@ jQuery(function($){
 						$( "#wpba_image_sortable" ).append( resp.image );
 						wpba.updateSortOrder($( "#wpba_image_sortable" ));
 						wpba.resetClickHandlers();
+						$('#wpba_attachments_button2').removeClass('hide');
 					}
 
 				});
@@ -52,5 +54,9 @@ jQuery(function($){
 			file_frame.open();
 		});
 
+		// Show the 2nd Add Attachments button if there are any attachments
+		if ($('.wpba-attachment-item').length) {
+			$('#wpba_attachments_button2').removeClass('hide');
+		}
 	}); // $(window).load()
 }(jQuery));
